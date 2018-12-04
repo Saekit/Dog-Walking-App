@@ -41,13 +41,11 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'better_errors'
   gem 'capybara'
-  gem 'factory_girl_rails'
+  gem 'factory_bot'
   gem 'faker'
   gem 'database_cleaner'
   gem 'rspec-rails', '~> 3.8'
   gem 'pry'
-  gem 'pry-nav'
-  gem 'pry-rails', '~> 0.3.2'
   gem 'simple_bdd'
   gem "selenium-webdriver"
   gem "sprockets_better_errors"
