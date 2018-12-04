@@ -39,6 +39,21 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'better_errors'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'database_cleaner'
+  gem 'rspec-rails', '~> 3.8'
+  gem 'pry'
+  gem 'pry-nav'
+  gem 'pry-rails', '~> 0.3.2'
+  gem 'simple_bdd'
+  gem "selenium-webdriver"
+  gem "sprockets_better_errors"
+  gem "binding_of_caller"
+  gem "simplecov"
+  gem 'rack_session_access'
 end
 
 group :development do
