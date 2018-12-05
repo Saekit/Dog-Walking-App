@@ -1,0 +1,11 @@
+<h1>Hi, my name is <%= @dog.name %></h1>
+<% if @dog.image_url != nil %>
+  <%= image_tag(@dog.image_url) %>
+<% end %>
+<ul>
+  <li>I am <%= @dog.age %> years old. </li>
+  <li>I am a <%= @dog.breed %>.</li>
+  <li>I am a <%= @dog.size %> <%= @dog.friendliness %> dog.</li>
+  <li><%= @owner_name %> is my owner!</li>
+  <li>My restrictions: <%= @dog.restriction %></li>
+</ul>

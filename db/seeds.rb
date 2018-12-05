@@ -56,7 +56,7 @@ end
 
 
 35.times do
-  Appointment.create!(dog_id: @dog_ids.sample, walker_id: @walker_ids.sample, datetime: Faker::Date.between(6.months.ago, 1.year.from_now), walk_rating: @rating.sample, comment: @comments.sample)
+  Appointment.create!(dog_id: @dog_ids.sample, walker_id: @walker_ids.sample, datetime: Faker::Time.between(6.months.ago, 1.year.from_now, :day), walk_rating: @rating.sample, comment: @comments.sample)
 end
 
 #price per 15 mins

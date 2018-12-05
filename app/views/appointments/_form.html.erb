@@ -1,0 +1,21 @@
+<ul>
+<%= form_for @appointment do |f| %>
+<%= f.label :dog_id %>
+<%= f.collection_select :dog_id, Dog.all, :id, :name %>
+<%= f.label :walker_id %>
+<%= f.collection_select :walker_id, Walker.all, :id, :user_id %>
+<%= f.label :datetime %>
+<%= f.text_field :datetime %>
+
+<%= f.submit %>
+<% end %>
+</ul>
+
+
+<!-- t.integer "dog_id"
+t.integer "walker_id"
+t.datetime "datetime"
+t.integer "status", default: 0
+t.boolean "walked", default: false
+t.integer "walk_rating"
+t.string "comment" -->
