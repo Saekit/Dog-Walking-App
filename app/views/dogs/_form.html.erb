@@ -1,0 +1,17 @@
+<ul>
+<%= form_for @dog do |f| %>
+<li><%= f.label :name %>
+<%= f.text_field :name %></li>
+<li><%= f.label :age %>
+<%= f.text_field :age %></li>
+<li><%= f.label :breed %>
+<%= f.text_field :breed %></li>
+<li><%= f.label :size %>
+<%= f.text_field :size %></li>
+<li><%= f.label :friendliness %>
+<%= f.text_field :friendliness %></li>
+<li><%= f.label "Picture" %>
+<%= f.text_field :image_url %></li>
+<%= f.submit %>
+<% end %>
+</ul>
