@@ -1,0 +1,43 @@
+<p id="notice"> <%= notice %></p>
+
+<h1>All Users</h1>
+
+<table>
+  <th>
+    <tr>
+      <th>Owners</th>
+      <th>Role</th>
+      <th colspan ="6"></th>
+    </tr>
+  </th>
+
+  <tbody>
+    <tr>
+      <% @owner.each do |owner| %>
+      <td> <%= owner.name %></td>
+      <td> <%= owner.role %></td>
+      <td> <%= link_to 'create owner', new_owner_path %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table>
+  <th>
+    <tr>
+      <th>Walkers</th>
+      <th>Role</th>
+      <th colspan ="6"></th>
+    </tr>
+  </th>
+
+  <tbody>
+    <tr>
+      <% @walker.each do |walker| %>
+      <td> <%= walker.name %></td>
+      <td> <%= walker.role %></td>
+      <td> <%= link_to 'create walker', new_owner_path %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

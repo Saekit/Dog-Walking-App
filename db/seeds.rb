@@ -17,8 +17,12 @@ Walker.destroy_all
 Service.destroy_all
 
 
-22.times do
-  User.create!(name: Faker::Name.unique.name, username: Faker::Internet.unique.username, email: Faker::Internet.email)
+10.times do
+  User.create!(name: Faker::Name.unique.name, username: Faker::Internet.unique.username, email: Faker::Internet.email, role: "owner")
+end
+
+12.times do
+  User.create!(name: Faker::Name.unique.name, username: Faker::Internet.unique.username, email: Faker::Internet.email, role: "walker" )
 end
 
 @user_ids = User.pluck(:id)

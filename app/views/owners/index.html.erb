@@ -1,0 +1,27 @@
+<h1>All Owners</h1>
+
+<p id="notice"> <%= notice %></p>
+
+
+<table>
+  <th>
+    <tr>
+      <th>Owners</th>
+      <th>Dogs Owned</th>
+      <th colspan ="6"></th>
+    </tr>
+  </th>
+
+  <tbody>
+    <tr>
+      <% @owners.each do |owner| %>
+      <td> <%= link_to owner.user.name, owner %></td>
+      <td> <%= owner.dogs.count %></td>
+      <td> <%= link_to "Show", owner %></td>
+      <td> <%= link_to "Edit", edit_owner_path(owner) %></td>
+      <td> <%= link_to "Delete", owners_path, :method => :delete  %></td>
+
+    </tr>
+    <% end %>
+  </tbody>
+</table>

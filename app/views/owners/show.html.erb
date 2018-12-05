@@ -1,0 +1,15 @@
+<h1><%= @name %>'s Profile Page</h1>
+
+  <div class="">
+    <p>Address: <%= @owner.address %></p>
+    <p>City: <%= @owner.city %></p>
+  </div>
+
+  <div class="">
+    <p> <%= @name %>  has <%=@owner.dogs.count %> dog(s).</p>
+    <ol>
+      <% @owner.dogs.each do |dog| %>
+      <li> <%=  link_to dog.name %> </li>
+      <% end %>
+    </ol>
+  </div>
