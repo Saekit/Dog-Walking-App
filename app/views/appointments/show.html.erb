@@ -1,6 +1,6 @@
 <h1>Appointment for <%= @appointment.dog.name %> </h1>
 <ul>
-  <li>Appointment time: <%= @appointment.datetime.strftime("%A, %B %d at %-H:%M%p") %></li>
+  <li>Appointment time: <%= @appointment.datetime.strftime("%A, %B %d at %-I:%M%p") %></li>
   <li>Walked by: <%= @walker_name %></li>
   <li>Comment: <%= @appointment.comment %></li>
   <li>Walked: <%= @appointment.walked %>
