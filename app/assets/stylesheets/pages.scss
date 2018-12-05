@@ -1,0 +1,10 @@
+
+body{
+    background: blue;
+    background: image-url("dog_walking.jpeg");
+    }
+
+.container{
+  border: 5px solid red;
+  asset-url('dog_walking.jpeg', image)
+}
