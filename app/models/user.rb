@@ -1,5 +1,9 @@
 class User < ApplicationRecord
-  has_many :owners
-  has_many :walkers
+  has_one :owner
+  has_one :walker
   has_many :admins
+
+  enum role: { owner: "owner", walker: "walker",  admin: "admin" }
+
+
 end

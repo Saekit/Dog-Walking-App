@@ -1,0 +1,8 @@
+<h1> <%= @user.name %> Profile Page</h1
+<hr>
+
+<p> <b>My current role:</b> <%= @user.role %></p>
+<p> <b>Username: </b><%= @user.username %></p>
+<p> <b>Email:</b> <%= @user.email  %></p>
+
+<p> <%= link_to "Back", new_user_path %> | <%= link_to "Edit", edit_user_path %></p>
