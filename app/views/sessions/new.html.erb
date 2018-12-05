@@ -1,0 +1,25 @@
+<h1>Log in</h1>
+
+<%= form_with url: sessions_path, local: true do |f| %>
+<div class="field">
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+</div>
+
+<div class="field">
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+</div>
+
+<div class="field">
+  <b>User Role</b>
+  <br>
+  <%= f.radio_button :role, 'owner' %> Dog Owner <br>
+  <%= f.radio_button :role, 'walker' %> Walker <br>
+  <%= f.radio_button :role, 'admin' %> Administrator <br>
+</div>
+
+<div class="actions">
+  <%= f.submit "Log in" %>
+</div>
+<% end %>
