@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    @errors = flash[:errors] || []
     @user = User.new
   end
 
@@ -57,7 +58,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :username, :role)
+    params.require(:user).permit(:name, :email, :username, :role, :password)
   end
 
 end
