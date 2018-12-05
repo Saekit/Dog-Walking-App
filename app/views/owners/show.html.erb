@@ -9,7 +9,7 @@
     <p> <%= @name %>  has <%=@owner.dogs.count %> dog(s).</p>
     <ol>
       <% @owner.dogs.each do |dog| %>
-      <li> <%=  link_to dog.name %> </li>
+      <li> <%=  link_to dog.name, dog %> </li>
       <% end %>
     </ol>
   </div>
