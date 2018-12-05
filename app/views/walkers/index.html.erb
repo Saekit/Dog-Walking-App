@@ -1,0 +1,27 @@
+<h1>Meet Our Team</h1>
+
+<p id="notice"> <%= notice %></p>
+
+
+<table>
+  <th>
+    <tr>
+      <th>Walkers</th>
+      <th>Experience</th>
+      <th colspan ="6"></th>
+    </tr>
+  </th>
+
+  <tbody>
+    <tr>
+      <% @walkers.each do |walker| %>
+     <td> <%= link_to walker.user.name, walker %></td>
+      <td> <%= walker.experience %></td>
+      <td> <%= link_to "Show", walker %></td>
+      <td> <%= link_to "Edit", edit_walker_path(walker) %></td>
+      <td> <%= link_to "Delete", walker, method: :delete  %></td>
+
+    </tr>
+    <% end %>
+  </tbody>
+</table>
