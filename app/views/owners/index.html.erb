@@ -15,7 +15,7 @@
   <tbody>
     <tr>
       <% @owners.each do |owner| %>
-      <td> <%= link_to owner.user.name, owner %></td>
+      <td> <%= link_to owner.name, owner %></td>
       <td> <%= owner.dogs.count %></td>
       <td> <%= link_to "Show", owner %></td>
       <td> <%= link_to "Edit", edit_owner_path(owner) %></td>

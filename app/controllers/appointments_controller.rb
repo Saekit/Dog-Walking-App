@@ -1,3 +1,5 @@
+require 'byebug'
+
 class AppointmentsController < ApplicationController
   before_action :find_appointment, only: [:show, :edit, :update, :destroy]
 
@@ -6,7 +8,7 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-    @walker_name = User.find(@appointment.walker.user_id).name
+
   end
 
   def new
@@ -18,17 +20,24 @@ class AppointmentsController < ApplicationController
   end
 
   def create
+
     @appointment = Appointment.create(appointment_params)
+
 
     respond_to do |format|
       if @appointment.valid?
         @appointment.save!
-        format.html { redirect_to appointment, notice: "Appointment has been created successfully!!"}
+
+
+        ServiceAppointment.create!(service_total: 16, appointment_id: @appointment.id, service_id: params[:appointment][:services].to_i, walker_id: 10)
+        format.html { redirect_to @appointment, notice: "Appointment has been created successfully!!"}
       else
         @dogs = Dog.all
         format.html { render :new }
       end
     end
+
+
   end
 
   def edit
@@ -50,6 +59,6 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_params
-    params.require(:appointment).permit(:dog_id, :walker_id, :date, :time, :comment)
+    params.require(:appointment).permit(:dog_id,  :date, :start_time, :end_time)
   end
 end
