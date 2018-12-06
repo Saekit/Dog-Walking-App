@@ -6,4 +6,5 @@ class Appointment < ApplicationRecord
   belongs_to :walker
 
 
+  accepts_nested_attributes_for :services
 end

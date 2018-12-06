@@ -11,12 +11,24 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
-    # @walker_name = User.find(@appointment.walker.user_id).name
+    @dogs = Dog.all
+    @walkers = Walker.all
+    # byebug
+    # @services = Service.all
   end
 
   def create
     @appointment = Appointment.create(appointment_params)
-    redirect_to @appointment
+
+    respond_to do |format|
+      if @appointment.valid?
+        @appointment.save!
+        format.html { redirect_to appointment, notice: "Appointment has been created successfully!!"}
+      else
+        @dogs = Dog.all
+        format.html { render :new }
+      end
+    end
   end
 
   def edit
@@ -38,6 +50,6 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_params
-    params.require(:appointment).permit(:dog_id, :walker_id, :datetime, :status, :walked, :walk_rating, :comment, :user_id)
+    params.require(:appointment).permit(:dog_id, :walker_id, :date, :time, :comment)
   end
 end
