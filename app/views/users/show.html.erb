@@ -1,4 +1,5 @@
-<h1> <%= @user.name %> Profile Page</h1
+<div class="text-center">
+<h1>Welcome Admin <%= @user.name %></h1
 <hr>
 
 <p> <b>My current role:</b> <%= @user.role %></p>
@@ -15,8 +16,10 @@
   <%= link_to "List of Owners", owners_path %> ||
   <%= link_to "List of Walkers", walkers_path %> ||
   <%= link_to "List of Dogs", dogs_path %> ||
-  <%= link_to "List of Services", services_path %>
+  <%= link_to "List of Services", services_path %> ||
+  <%= link_to "List of Users", users_path %>
 <% else %>
   <%= link_to "Register as a dog owner", new_owner_path %> ||
   <%= link_to "Register as a dog walker", new_walker_path %>
 <% end %>
+</div>

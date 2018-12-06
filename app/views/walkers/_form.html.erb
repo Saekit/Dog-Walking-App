@@ -1,7 +1,7 @@
+
 <%= form_for @walker do |f| %>
   <div class="field">
-    <%= f.label :age %>
-    <%= f.text_field :age %>
+    <%= f.text_field :age, placeholder: "age"  %>
   </div>
 
   <div class="field">
@@ -23,5 +23,3 @@
     <%= f.submit %>
   </div>
 <% end %>
-
-<br>

@@ -18,7 +18,12 @@ class DogsController < ApplicationController
   def create
     @owner = User.find(session[:user_id]).owner.id
     @dog = Dog.create(dog_params)
-    redirect_to owner_path(@owner)
+    if @dog.save
+      redirect_to owner_path(@owner)
+    else
+      flash[:errors] = @dog.errors.full_messages
+      redirect_to new_dog_path(@dog)
+    end
   end
 
   def edit
@@ -27,7 +32,12 @@ class DogsController < ApplicationController
   def update
     @owner = User.find(session[:user_id]).owner.id
     @dog.update(dog_params)
-    redirect_to owner_path(@owner)
+    if @dog.save
+      redirect_to owner_path(@owner)
+    else
+      flash[:errors] = @dog.errors.full_messages
+      redirect_to edit_dog_path(@dog)
+    end
   end
 
   def destroy

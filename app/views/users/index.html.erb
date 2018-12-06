@@ -16,7 +16,8 @@
       <% @owner.each do |owner| %>
       <td> <%= owner.name %></td>
       <td> <%= owner.role %></td>
-      <td> <%= link_to 'create owner', new_owner_path %></td>
+      <td> <%= link_to 'New', new_owner_path %></td>
+      <td> <%= link_to 'Delete', owner, method: :delete %></td>
     </tr>
     <% end %>
   </tbody>
@@ -36,7 +37,8 @@
       <% @walker.each do |walker| %>
       <td> <%= walker.name %></td>
       <td> <%= walker.role %></td>
-      <td> <%= link_to 'create walker', new_owner_path %></td>
+      <td> <%= link_to 'New', new_walker_path %></td>
+      <td> <%= link_to 'Delete', walker, method: :delete %></td>
     </tr>
     <% end %>
   </tbody>

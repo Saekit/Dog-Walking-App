@@ -1,32 +1,67 @@
-<h1>All Services</h1>
 
-<p id="notice"> <%= notice %></p>
-
-<div class="container text-center">
-
-  <table>
-    <th>
-      <tr>
-        <th>Services</th>
-        <th>name</th>
-        <th>price</th>
-        <th>duration</th>
-        <th colspan ="6"></th>
-      </tr>
-    </th>
-
-    <tbody>
-      <tr>
-        <% @services.each do |service| %>
-        <td> <%= link_to service.name, service %></td>
-        <td> <%= service.price %></td>
-        <td> <%= service.duration %></td>
-        <td> <%= link_to "Show", service %></td>
-        <td> <%= link_to "Edit", edit_service_path(service) %></td>
-
-
-      </tr>
+<div class="row">
+  <div class="col">
+    <!-- Single Card -->
+    <div class="card" style="width: 18rem">
+    <img class="card-img-top" src="https://images.pexels.com/photos/1249208/pexels-photo-1249208.jpeg?cs=srgb&dl=4k-wallpaper-adorable-animal-1249208.jpg&fm=jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Dog Walking</h5>
+      <p class="card-text">A walker will happily walk your dog for your desired length at a time of your choosing. Our rates are $5 per every 15 minutes.</p>
+      <% if !!session[:user_id] %>
+      <a href="<%= new_appointment_path %>" class="btn btn-primary">Book Service</a>
+      <% else %>
+      <a href="<%= new_session_path %>" class="btn btn-primary">Book Service</a>
       <% end %>
-    </tbody>
-  </table>
+      </div>
+    </div>
+  </div>
+    <!-- End of Single Card -->
+    <!-- Single Card -->
+    <div class="col">
+      <div class="card" style="width: 18rem">
+        <img class="card-img-top" src="https://images.pexels.com/photos/374898/pexels-photo-374898.jpeg?cs=srgb&dl=adorable-animal-bed-374898.jpg&fm=jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Pet Sitting</h5>
+          <p class="card-text">If you need someone to watch your fur baby, we got you covered! Our rates for pet sitting is $7 per every 15 minutes.</p>
+          <% if !!session[:user_id] %>
+          <a href="<%= new_appointment_path %>" class="btn btn-primary">Book Service</a>
+          <% else %>
+          <a href="<%= new_session_path %>" class="btn btn-primary">Book Service</a>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <!-- End of Single Card  -->
+    <!-- Single Card -->
+    <div class="col">
+      <div class="card" style="width: 18rem">
+        <img class="card-img-top" src="https://images.pexels.com/photos/981062/pexels-photo-981062.jpeg?cs=srgb&dl=adorable-animal-breed-981062.jpg&fm=jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Pet In-Home Services</h5>
+          <p class="card-text">Need an at home fur-babysitter? Our dog lovers will personally watch your dog in your house for you, for however long you need. Rates for in-home pet sitting is $10 per every 15 minutes.</p>
+          <% if !!session[:user_id] %>
+          <a href="<%= new_appointment_path %>" class="btn btn-primary">Book Service</a>
+          <% else %>
+          <a href="<%= new_session_path %>" class="btn btn-primary">Book Service</a>
+          <% end %>
+        </div>
+      </div>
+    </div>
+      <!-- End of Single Card -->
+      <!-- Single Card -->
+      <div class="col">
+        <div class="card" style="width: 18rem">
+          <img class="card-img-top" src="https://images.pexels.com/photos/791862/pexels-photo-791862.jpeg?cs=srgb&dl=adorable-animal-animal-photography-791862.jpg&fm=jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Overnight</h5>
+            <p class="card-text">Looking for someone to stay with your baby overnight? Our caretakers will be happy to spend the night at your house or watch your dog overnight at theirs. Our rates for this service are $12 per every 15 minutes.</p>
+            <% if !!session[:user_id] %>
+            <a href="<%= new_appointment_path %>" class="btn btn-primary">Book Service</a>
+            <% else %>
+            <a href="<%= new_session_path %>" class="btn btn-primary">Book Service</a>
+            <% end %>
+            </div>
+          </div>
+      </div>
+      <!-- End of Single Card -->
 </div>

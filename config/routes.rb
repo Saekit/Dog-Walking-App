@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'pages#welcome'
 
   get 'pages/welcome'
-  get 'pages/about'
+  get 'pages/job'
   get 'pages/contact'
 
   resources :owners

@@ -1,6 +1,7 @@
 <h1>Dogs List</h1>
 <ul>
 <% @dogs.each do |dog| %>
-  <li><%= link_to dog.name, dog %></li>
+  <li><%= link_to dog.name, dog %> || <%= link_to "Edit", edit_dog_path(dog) %> || <%= link_to "Delete", dog, method: :delete %>
+</li>
 <% end %>
 <ul>
