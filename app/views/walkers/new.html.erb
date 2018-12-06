@@ -2,24 +2,6 @@
 
 <h1>Register</h1>
 
-<%= form_for(@walker) do |f| %>
-  <% if @walker.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@walker.errors.count, "error") %> prohibited this walker from being saved😢</h2>
-
-      <ul>
-        <% @walker.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <!-- <div class="field">
-    <%# <%= f.label :name %>
-    <%# <%= f.text_field :name %> %> %>
-  </div> -->
-
   <div class="field">
     <%= f.label :age %>
     <%= f.text_field :age %>

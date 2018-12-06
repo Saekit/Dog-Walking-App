@@ -15,7 +15,14 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
-      redirect_to @user
+      case @user.role
+      when "owner"
+        redirect_to new_owner_path
+      when "walker"
+        redirect_to new_walker_path
+      when "admin"
+        redirect_to users_path
+      end
     else
       flash[:errors] = @user.errors.full_messages
       redirect_to new_user_path

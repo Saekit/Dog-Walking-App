@@ -1,16 +1,18 @@
 <h1>Welcome to Your Home Page, <%= @owner.user.name %></h1>
 
   <h2>Your Dogs</h2>
-  <div class="your-dogs">
+
   <% @owner.dogs.each do |dog| %>
-  <p><%= link_to dog.name, dog %>
+    <div style="display:inline">
   <% if dog.image_url  %>
     <%= image_tag(dog.image_url, :size => '260x180') %>
-    <% end %>
-      <%= link_to "Edit", edit_dog_path(dog) %>
-  <% end %>
-  </p>
+    <% end %><br>
+    <%= link_to dog.name, dog %> | <%= link_to "Edit", edit_dog_path(dog) %>
+    <br>
   </div>
+  <% end %>
+
+
 
   <h5><%= link_to "Create an Appointment", new_appointment_path %></h5>
   <h5>List of Current Appointments</h5>
@@ -26,8 +28,8 @@
 
 <hr />
   <h2>Your Info</h2>
-  <div class="">
-    <p>Address: <%= @owner.address %></p>
-    <p>City: <%= @owner.city %></p>
+  <div class="">Address:
+    <address><%= @owner.address %><br>
+    <%= @owner.city %></address>
   </div>
 <%= link_to "Edit your info", edit_owner_path(@owner) %>
