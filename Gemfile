@@ -39,6 +39,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Bootstrap
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem "combined_time_select", "~> 2.0.0"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
