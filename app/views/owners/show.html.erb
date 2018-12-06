@@ -7,11 +7,13 @@
   <% if dog.image_url  %>
     <%= image_tag(dog.image_url, :size => '260x180') %>
     <% end %><br>
-    <%= link_to dog.name, dog %> | <%= link_to "Edit", edit_dog_path(dog) %>
+    <%= link_to dog.name, dog %> | <%= link_to "Edit", edit_dog_path(dog) %> | <%= link_to "Remove a dog", dog, method: :delete, data: {confirm: "Are you sure you want to remove this dog?"} %>
+
     <br>
   </div>
   <% end %>
 
+<%= link_to "Add a dog", new_dog_path %>
 
 
   <h5><%= link_to "Create an Appointment", new_appointment_path %></h5>

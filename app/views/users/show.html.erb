@@ -4,7 +4,11 @@
 <p> <b>My current role:</b> <%= @user.role %></p>
 <p> <b>Username: </b><%= @user.username %></p>
 <p> <b>Email:</b> <%= @user.email  %></p>
-
-
-
-<p> <%= link_to "Back", new_user_path %> | <%= link_to "Edit", edit_user_path %></p>
+<% if @user.role == "owner" && !!@user.owner%>
+  <%= link_to "My Owner Home Page", owner_path(@user.owner) %>
+<% elsif @user.role == "walker" && !!@user.walker%>
+<%= link_to "My Walker Home Page", walker_path(@user.walker) %>
+<% else %>
+  <%= link_to "Register as a dog owner", new_owner_path %> ||
+  <%= link_to "Register as a dog walker", new_walker_path %>
+<% end %>

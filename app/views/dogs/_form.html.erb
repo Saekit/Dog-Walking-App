@@ -12,6 +12,8 @@
 <%= f.text_field :friendliness %></li>
 <li><%= f.label "Picture" %>
 <%= f.text_field :image_url %></li>
+<%= f.hidden_field :owner_id, :value => @owner %>
 <%= f.submit %>
 <% end %>
 </ul>
+<%= link_to "Back", owner_path(@owner) %>

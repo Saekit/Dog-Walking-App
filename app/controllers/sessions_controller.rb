@@ -12,7 +12,14 @@ class SessionsController < ApplicationController
     else
       if @user && @user.authenticate(params[:password])
         log_in!(@user)
-        redirect_to @user
+        case @user.role
+        when "owner" && !!User.find(session[:user_id]).owner
+          redirect_to owner_path(User.find(session[:user_id]).owner.id)
+        when "walker" && !!User.find(session[:user_id]).owner
+          redirect_to walker_path(User.find(session[:user_id]).walker.id)
+        else
+          redirect_to @user
+        end
       else
         flash[:errors] = "username/password does not match"
         redirect_to new_session_path

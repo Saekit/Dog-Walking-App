@@ -7,6 +7,11 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id])
   end
 
+  def current_owner
+    return unless session[:user_id]
+    @current_owner ||= User.find(session[:user_id]).owner.id
+  end
+
   def log_in!(user)
     session[:user_id] = user.id
   end

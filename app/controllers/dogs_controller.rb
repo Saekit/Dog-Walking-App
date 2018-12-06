@@ -11,12 +11,14 @@ class DogsController < ApplicationController
   end
 
   def new
-    @dog = current_user.dog.new
+    @dog = Dog.new
+    @owner = User.find(session[:user_id]).owner.id
   end
 
   def create
+    @owner = User.find(session[:user_id]).owner.id
     @dog = Dog.create(dog_params)
-    redirect_to @dog
+    redirect_to current_owner
   end
 
   def edit
@@ -24,12 +26,12 @@ class DogsController < ApplicationController
 
   def update
     @dog.update(dog_params)
-    redirect_to @dog
+    redirect_to current_user
   end
 
   def destroy
     @dog.destroy
-    redirect_to dogs_path
+    redirect_to current_user
   end
 
   private
