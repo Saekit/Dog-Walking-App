@@ -1,6 +1,6 @@
 <h1>Appointments List</h1>
 <ul>
 <% @appointments.each do |app| %>
-  <li>For <%= app.dog.name %> on <%= link_to app.datetime.strftime("%A, %B %d at %-I:%M%p"), app %></li>
+  <li>For <%= app.dog.name %> on <%= link_to app.date, app %></li>
   <% end %>
 </ul>

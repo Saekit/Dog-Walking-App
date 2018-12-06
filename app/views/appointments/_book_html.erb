@@ -31,7 +31,14 @@
 %>
 </div>
 
-
+:combined => true,
+:default => Time.now.change(:hour => 6, :min => 00),
+:minute_interval => 15,
+:time_separator => "",
+:start_hour => 6,
+:start_minute => 00,
+:end_hour => 19,
+:end_minute => 00
 
 
 <div class="field">
@@ -40,3 +47,14 @@
   <%= service.collection_select :name, @services, :id, :name %>
   <% end %>
 </div>
+
+:labels => false,
+:ampm => true,
+:combined => true,
+:default => Time.now.change(:hour => 6, :min => 00),
+:minute_interval => 15,
+:time_separator => "",
+:start_hour => 6,
+:start_minute => 00,
+:end_hour => 7,
+:end_minute => 00
