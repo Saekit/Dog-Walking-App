@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_05_221549) do
+ActiveRecord::Schema.define(version: 2018_12_06_195601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,18 +20,17 @@ ActiveRecord::Schema.define(version: 2018_12_05_221549) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "name"
   end
 
   create_table "appointments", force: :cascade do |t|
     t.integer "dog_id"
-    t.integer "walker_id"
-    t.datetime "datetime"
     t.integer "status", default: 0
-    t.boolean "walked", default: false
-    t.integer "walk_rating"
-    t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "date"
+    t.string "start_time"
+    t.string "end_time"
   end
 
   create_table "dogs", force: :cascade do |t|
@@ -53,6 +52,7 @@ ActiveRecord::Schema.define(version: 2018_12_05_221549) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "service_appointments", force: :cascade do |t|
@@ -61,6 +61,11 @@ ActiveRecord::Schema.define(version: 2018_12_05_221549) do
     t.integer "service_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "walked", default: "0"
+    t.integer "walk_rating"
+    t.string "walker_notes"
+    t.string "owner_comments"
+    t.integer "walker_id"
   end
 
   create_table "services", force: :cascade do |t|
@@ -72,7 +77,6 @@ ActiveRecord::Schema.define(version: 2018_12_05_221549) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
     t.string "email"
     t.string "username"
     t.datetime "created_at", null: false
@@ -89,6 +93,7 @@ ActiveRecord::Schema.define(version: 2018_12_05_221549) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
   end
 
 end

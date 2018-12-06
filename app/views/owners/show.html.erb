@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 <div class="text-center">
 <h1>Welcome to Your Home Page, <%= @owner.user.name %></h1>
+=======
+<h1>Welcome to Your Home Page, <%= @owner.name %></h1>
+>>>>>>> 19d9f6bd0cbe8e946526e1c674cdcc0f5c1c90c0
 
   <h2>Your Dogs</h2>
 <ul class="dog-pics">
@@ -23,7 +27,7 @@
       <% if dog.appointments != [] %>
         <li class="dog-app-name"><%= dog.name %> |
           <% dog.appointments.each do |app| %>
-          <%= link_to app.datetime.strftime("%a %b %d %-I:%M%p"), app %> |
+          <%= link_to app.start_time, app %> |
           <% end %>
         </li>
       <% else %>

@@ -3,5 +3,8 @@ class Appointment < ApplicationRecord
   has_many :service_appointments
   has_many :services, through: :service_appointments
   belongs_to :dog
-  belongs_to :walker
+
+
+
+  accepts_nested_attributes_for :services
 end
