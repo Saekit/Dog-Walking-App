@@ -227,6 +227,10 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.2)
+<<<<<<< HEAD
+=======
+
+>>>>>>> f84ddfbfe809ff74d4c3303d69e206dca14764bb
   combined_time_select (~> 2.0.0)
   database_cleaner
   factory_bot
