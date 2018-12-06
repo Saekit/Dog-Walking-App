@@ -11,15 +11,9 @@
   <%= f.password_field :password %>
 </div>
 
-<div class="field">
-  <b>User Role</b>
-  <br>
-  <%= f.radio_button :role, 'owner' %> Dog Owner <br>
-  <%= f.radio_button :role, 'walker' %> Walker <br>
-  <%= f.radio_button :role, 'admin' %> Administrator <br>
-</div>
-
 <div class="actions">
   <%= f.submit "Log in" %>
 </div>
 <% end %>
+<br />
+<p><%= link_to "Or Register", new_user_path %></p>

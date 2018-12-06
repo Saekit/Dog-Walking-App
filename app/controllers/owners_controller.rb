@@ -24,7 +24,6 @@ class OwnersController < ApplicationController
   end
 
   def show
-    @name = User.find(@owner.id).name
   end
 
   def edit
