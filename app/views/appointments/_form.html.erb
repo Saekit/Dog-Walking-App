@@ -7,6 +7,17 @@
 <%= f.label :datetime %>
 <%= f.text_field :datetime %>
 
+<%= f.time_select :comment,
+  :combined => true,
+  :default => Time.now.change(:hour => 6, :min => 00),
+  :minute_interval => 15,
+  :time_separator => "",
+  :start_hour => 6,
+  :start_minute => 00,
+  :end_hour => 19,
+  :end_minute => 00
+%>
+
 <%= f.submit %>
 <% end %>
 </ul>

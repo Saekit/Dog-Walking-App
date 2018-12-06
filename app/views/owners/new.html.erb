@@ -26,12 +26,12 @@
     <%= f.text_field :city %>
   </div>
 
-    <%= fields_for User.new do |u| %>
-      <div class="field">
-        User <%= u.label :id %>
-        <%= u.text_field :id %>
-      </div>
-    <% end %>
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.text_field :user_id %>
+  </div>
+
+
 
   <div class="actions">
     <%= f.submit %>
