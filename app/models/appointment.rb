@@ -4,4 +4,6 @@ class Appointment < ApplicationRecord
   has_many :services, through: :service_appointments
   belongs_to :dog
   belongs_to :walker
+
+
 end

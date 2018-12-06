@@ -1,12 +1,10 @@
 class ServicesController < ApplicationController
-  before_action :find_service, only: [:show, :edit, :create, :destroy]
+
+  before_action :find_service, only:[:show, :edit, :update, :destroy]
 
 
   def index
     @services = Service.all
-  end
-
-  def show
   end
 
   def new
@@ -15,7 +13,18 @@ class ServicesController < ApplicationController
 
   def create
     @service = Service.create(service_params)
-    redirect_to @service
+    respond_to do |format|
+        if @service.valid?
+            @service.save!
+          format.html {redirect_to @service, notice: "Your have successfully created a new service"}
+        else
+          format.html {render :new}
+        end
+      end
+
+  end
+
+  def show
   end
 
   def edit
@@ -23,21 +32,31 @@ class ServicesController < ApplicationController
 
   def update
     @service.update(service_params)
-    redirect_to @service
+    respond_to do |format|
+        if @service.valid?
+            @service.save!
+          format.html {redirect_to @service, notice: "Your have successfully created a new service"}
+        else
+          format.html {render :edit}
+        end
+      end
   end
 
   def destroy
     @service.destroy
-    redirect_to services_path
+    respond_to do |format|
+      format.html {redirect_to services_path}
+    end
   end
 
 
   private
-  def service_params
-    params.require(:service).permit(:name, :price, :duration)
-  end
 
   def find_service
     @service = Service.find(params[:id])
+  end
+
+  def service_params
+    params.require(:service).permit(:name, :price, :duration)
   end
 end

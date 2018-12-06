@@ -1,6 +1,32 @@
-<h1>List of Available Services</h1>
-<ul>
-<% @services.each do |service| %>
-  <li><%= link_to service.name, service %></li>
-<% end %>
-</ul>
+<h1>All Services</h1>
+
+<p id="notice"> <%= notice %></p>
+
+<div class="container text-center">
+
+  <table>
+    <th>
+      <tr>
+        <th>Services</th>
+        <th>name</th>
+        <th>price</th>
+        <th>duration</th>
+        <th colspan ="6"></th>
+      </tr>
+    </th>
+
+    <tbody>
+      <tr>
+        <% @services.each do |service| %>
+        <td> <%= link_to service.name, service %></td>
+        <td> <%= service.price %></td>
+        <td> <%= service.duration %></td>
+        <td> <%= link_to "Show", service %></td>
+        <td> <%= link_to "Edit", edit_service_path(service) %></td>
+
+
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

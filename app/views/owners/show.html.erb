@@ -1,15 +1,35 @@
-<h1><%= @name %>'s Profile Page</h1>
+<h1>Welcome to Your Home Page, <%= @owner.user.name %></h1>
 
-  <div class="">
-    <p>Address: <%= @owner.address %></p>
-    <p>City: <%= @owner.city %></p>
-  </div>
+  <h2>Your Dogs</h2>
 
-  <div class="">
-    <p> <%= @name %>  has <%=@owner.dogs.count %> dog(s).</p>
-    <ol>
-      <% @owner.dogs.each do |dog| %>
-      <li> <%=  link_to dog.name %> </li>
-      <% end %>
-    </ol>
+  <% @owner.dogs.each do |dog| %>
+    <div style="display:inline">
+  <% if dog.image_url  %>
+    <%= image_tag(dog.image_url, :size => '260x180') %>
+    <% end %><br>
+    <%= link_to dog.name, dog %> | <%= link_to "Edit", edit_dog_path(dog) %>
+    <br>
   </div>
+  <% end %>
+
+
+
+  <h5><%= link_to "Create an Appointment", new_appointment_path %></h5>
+  <h5>List of Current Appointments</h5>
+  <ul>
+    <% @owner.dogs.each do |dog| %>
+      <li><%= dog.name %> |
+        <% dog.appointments.each do |app| %>
+        <%= link_to app.datetime.strftime("%a %b %d %-I:%M%p"), app %> |
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+<hr />
+  <h2>Your Info</h2>
+  <div class="">Address:
+    <address><%= @owner.address %><br>
+    <%= @owner.city %></address>
+  </div>
+<%= link_to "Edit your info", edit_owner_path(@owner) %>
