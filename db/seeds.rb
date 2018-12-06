@@ -53,7 +53,7 @@ end
 @experience = ["in-training", "apprentice", "certified"]
 @rating = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-  Walker.create!(age: 0, experience: "placeholder", rating: 0, user_id: @user_ids.sample)
+  # Walker.create!(age: 0, experience: "placeholder", rating: 0, user_id: @user_ids.sample)
 
 10.times do |i|
   Walker.create!(age: Random.rand(18..40), experience: @experience.sample, rating: @rating.sample, user_id: @user_ids[i+10])
