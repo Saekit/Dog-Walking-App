@@ -1,0 +1,31 @@
+<h1>All Service Appointments</h1>
+
+<p id="notice"> <%= notice %></p>
+
+
+<table>
+  <th>
+    <tr>
+      <th>Service </th>
+      <th>Total</th>
+      <th>Walker</th>
+      <th>Dog</th>
+      <th colspan ="6"></th>
+    </tr>
+  </th>
+
+  <tbody>
+    <tr>
+      <% @service_appointments.each do |service_appointment| %>
+      <td> <%= link_to service_appointment.service.name, services_path %></td>
+      <td> <%= service_appointment.service_total %></td>
+      <td> <%= link_to service_appointment.appointment.walker.user.name, walkers_path %></td>
+      <td> <%= link_to service_appointment.appointment.dog.name, dogs_path %></td>
+      <td> <%= link_to "Show", service_appointment %></td>
+      <td> <%= link_to "Edit", edit_service_appointment_path(service_appointment) %></td>
+      <td> <%= link_to "Delete", service_appointment, method: :delete  %></td>
+
+    </tr>
+    <% end %>
+  </tbody>
+</table>
