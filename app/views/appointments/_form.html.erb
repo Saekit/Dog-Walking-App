@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= f.label :start_time %>
-    <%= f.time_select :start_time %>
+    <%= f.time_select :start_time, :value=> 6, :default => Time.now %>
     <%= f.label :end_time %>
     <%= f.time_select :end_time %>
   </div>
