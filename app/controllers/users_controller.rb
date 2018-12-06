@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
+      log_in!(@user)
       case @user.role
       when "owner"
         redirect_to new_owner_path

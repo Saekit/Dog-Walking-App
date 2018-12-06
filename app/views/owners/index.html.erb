@@ -19,7 +19,7 @@
       <td> <%= owner.dogs.count %></td>
       <td> <%= link_to "Show", owner %></td>
       <td> <%= link_to "Edit", edit_owner_path(owner) %></td>
-      <td> <%= link_to "Delete", owners_path, :method => :delete  %></td>
+      <td> <%= link_to "Delete", owner, :method => :delete  %></td>
 
     </tr>
     <% end %>

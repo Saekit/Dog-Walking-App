@@ -18,20 +18,22 @@ class DogsController < ApplicationController
   def create
     @owner = User.find(session[:user_id]).owner.id
     @dog = Dog.create(dog_params)
-    redirect_to current_owner
+    redirect_to owner_path(@owner)
   end
 
   def edit
   end
 
   def update
+    @owner = User.find(session[:user_id]).owner.id
     @dog.update(dog_params)
-    redirect_to current_user
+    redirect_to owner_path(@owner)
   end
 
   def destroy
+    @owner = User.find(session[:user_id]).owner.id
     @dog.destroy
-    redirect_to current_user
+    redirect_to owner_path(@owner)
   end
 
   private

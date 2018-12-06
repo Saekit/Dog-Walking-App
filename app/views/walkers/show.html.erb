@@ -1,6 +1,8 @@
 <h1> <%= @walker.user.name %>'s Booked Appointments</h1>
 <% @walker.appointments.each do |app| %>
-<p><%= app.dog.name %> | <%= app.datetime.strftime("%a %b %d %-I:%M%p") %></p>
+<p><%= app.dog.name %> | <%= app.datetime.strftime("%a %b %d %-I:%M%p") %> <br>
+  <%= app.dog.image_url %>
+</p>
 <% end %>
 
 <%= link_to "Book another dog", new_appointment_path %>

@@ -13,9 +13,9 @@ class SessionsController < ApplicationController
       if @user && @user.authenticate(params[:password])
         log_in!(@user)
         case @user.role
-        when "owner" && !!User.find(session[:user_id]).owner
+        when "owner" 
           redirect_to owner_path(User.find(session[:user_id]).owner.id)
-        when "walker" && !!User.find(session[:user_id]).owner
+        when "walker"
           redirect_to walker_path(User.find(session[:user_id]).walker.id)
         else
           redirect_to @user
