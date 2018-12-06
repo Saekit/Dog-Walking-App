@@ -1,0 +1,21 @@
+<div class="text-center">
+
+  <h1>Log in</h1>
+
+<%= form_with url: sessions_path, local: true do |f| %>
+<div class="field">
+  <%= f.text_field :username, placeholder: "username" %>
+</div>
+
+<div class="field">
+  <%= f.password_field :password, placeholder: "password" %>
+</div>
+
+<div class="actions">
+  <%= f.submit "Log in" %>
+</div>
+<% end %>
+
+<p><%= link_to "Or Register", new_user_path %></p>
+</div>
+<br />

@@ -24,7 +24,6 @@ class OwnersController < ApplicationController
   end
 
   def show
-    @name = User.find(@owner.id).name
   end
 
   def edit
@@ -45,10 +44,7 @@ class OwnersController < ApplicationController
 
   def destroy
     @owner.destroy
-
-    respond_to do |format|
-      format.html redirect_to @owners_path
-    end
+    redirect_to owners_path
   end
 
 

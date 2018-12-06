@@ -1,16 +1,42 @@
-<h1><%= @name %>'s Profile Page</h1>
+<div class="text-center">
+<h1>Welcome to Your Home Page, <%= @owner.user.name %></h1>
 
-  <div class="">
-    <p>Address: <%= @owner.address %></p>
-    <p>City: <%= @owner.city %></p>
-  </div>
+  <h2>Your Dogs</h2>
+<ul class="dog-pics">
+  <% @owner.dogs.each do |dog| %>
 
-  <div class="">
-    <p> <%= @name %>  has <%=@owner.dogs.count %> dog(s).</p>
-    <ol>
-      <% @owner.dogs.each do |dog| %>
-      <li> <%=  link_to dog.name, dog%> </li>
+  <li><% if dog.image_url  %>
+    <%= image_tag(dog.image_url, :size => '260x180') %>
+    <% end %><br>
 
+    <%= link_to dog.name, dog, class: 'btn btn-info' %> | <%= link_to "Edit", edit_dog_path(dog), class: 'btn btn-info' %> | <%= link_to "Remove a dog", dog, method: :delete, data: {confirm: "Are you sure you want to remove this dog?"}, class: 'btn btn-info' %></li>
+
+  <% end %>
+  <br>
+</ul>
+
+|| <%= link_to "Add a dog", new_dog_path, class: 'btn btn-info' %> || <%= link_to "Create an Appointment", new_appointment_path, class: 'btn btn-info' %> ||
+<hr />
+  <h5>List of Current Appointments</h5>
+  <ul>
+    <% @owner.dogs.each do |dog| %>
+      <% if dog.appointments != [] %>
+        <li class="dog-app-name"><%= dog.name %> |
+          <% dog.appointments.each do |app| %>
+          <%= link_to app.datetime.strftime("%a %b %d %-I:%M%p"), app %> |
+          <% end %>
+        </li>
+      <% else %>
+        <p> No current appointments for <%= dog.name %>.</p>
       <% end %>
-    </ol>
+    <% end %>
+  </ul>
+
+<hr />
+  <h5>Your Info</h5>
+  <div class="">Address:
+    <address><%= @owner.address %><br>
+    <%= @owner.city %></address>
   </div>
+<%= link_to "Edit your info", edit_owner_path(@owner) %>
+</div>

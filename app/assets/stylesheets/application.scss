@@ -13,4 +13,13 @@
  */
  @import "bootstrap";
 
- 
+ .dog-pics{
+   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  list-style-type: none;
+  justify-content: space-evenly;
+}
+.dog-app-name {
+  list-style-type: none;
+}

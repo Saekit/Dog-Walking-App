@@ -1,0 +1,10 @@
+
+<%= form_for @owner do |f| %>
+<%= f.text_field :address, placeholder: "address"  %>
+<br>
+<%= f.text_field :city, placeholder: "city"  %>
+<br>
+<%= f.hidden_field :user_id, :value => session[:user_id] %>
+<br>
+<%= f.submit %>
+<% end %>

@@ -1,6 +1,6 @@
 <h1>Hi, my name is <%= @dog.name %></h1>
 <% if @dog.image_url != nil %>
-  <%= image_tag(@dog.image_url) %>
+  <%= image_tag(@dog.image_url, :size => '260x180') %>
 <% end %>
 <ul>
   <li>I am <%= @dog.age %> years old. </li>

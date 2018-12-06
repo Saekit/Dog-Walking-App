@@ -1,0 +1,25 @@
+
+<%= form_for @walker do |f| %>
+  <div class="field">
+    <%= f.text_field :age, placeholder: "age"  %>
+  </div>
+
+  <div class="field">
+    <b>What is your experience?</b>
+    <br>
+    <%= f.radio_button :experience, 'in-training' %>in-training <br>
+    <%= f.radio_button :experience, 'apprentice' %> apprentice <br>
+    <%= f.radio_button :experience, 'certified' %> certified <br>
+    <br>
+  </div>
+
+  <div class="field">
+    <b>Are you a dog owner?</b>
+    <%= f.check_box :own_dogs %>
+    <%= f.hidden_field :user_id, :value => session[:user_id] %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

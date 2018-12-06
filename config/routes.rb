@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'pages#welcome'
 
   get 'pages/welcome'
-  get 'pages/about'
+  get 'pages/job'
   get 'pages/contact'
 
   resources :owners
@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   resources :admins
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :dogs, :appointments, :services
+  resources :dogs, :appointments, :services, :sessions
 end
