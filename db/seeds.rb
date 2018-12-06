@@ -42,6 +42,10 @@ end
 20.times do
   Dog.create!(name: Faker::Dog.name, age: Random.rand(1..15), breed: Faker::Dog.breed, size: Faker::Dog.size, restriction: @restrictions.sample, friendliness: @friendly.sample, owner_id: @owner_ids.sample)
 end
+dog_pics = ["corgi.jpg", "eskimo.jpg", "husky.jpg", "lab.jpg"]
+4.times do
+  Dog.create!(name: Faker::Dog.name, age: Random.rand(1..15), breed: Faker::Dog.breed, size: Faker::Dog.size, restriction: @restrictions.sample, friendliness: @friendly.sample, owner_id: @owner_ids.sample, image_url: dog_pics.shuffle.sample)
+end
 
 @dog_ids = Dog.pluck(:id)
 @experience = ["in-training", "apprentice", "certified"]
