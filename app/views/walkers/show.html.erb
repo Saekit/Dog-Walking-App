@@ -4,7 +4,7 @@
   <% @walker.service_appointments.each do |ser_app| %>
     <ul class="dog-pics">
       <% if ser_app.appointment != nil %>
-        <li><%= ser_app.appointment.dog.name %> | <%= link_to ser_app.appointment.date, ser_app %> <%= ser_app.appointment.dog.name %> | <%= ser_app.appointment.start_time%> <%= ser_app.appointment.end_time%><br>
+        <li><%= link_to ser_app.appointment.dog.name, ser_app.appointment.dog %> | <%= link_to ser_app.appointment.date.strftime("%a %b %d"), ser_app %> <%= ser_app.appointment.dog.name %> | <%= ser_app.appointment.start_time.strftime("%-I:%M")%> - <%= ser_app.appointment.end_time.strftime("%-I:%M")%><br>
           <% if !!ser_app.appointment.dog.image_url %>
           <%= image_tag(ser_app.appointment.dog.image_url, :size => '260x180') %>
           <% end %>
@@ -13,10 +13,10 @@
     </ul>
   <% end %>
 <% else %>
-<p>No current appointments. Why not <%= link_to "book one", new_appointment_path %>!</p>
+<p>No current appointments. Why not <%= link_to "book one", service_appointments_path %>!</p>
 <% end %>
 
-<%= link_to "Book another dog", new_appointment_path %>
+<%= link_to "Book another dog", service_appointments_path %>
 
 
 <hr />

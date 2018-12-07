@@ -1,6 +1,6 @@
 <p id="notice"> <%= notice %> </p>
 
-
+<div class="text-center">
 <%= form_for(@appointment) do |f| %>
   <% if @appointment.errors.any? %>
     <div id="error_explanation">
@@ -58,3 +58,4 @@
     <%= f.submit  "book appointment" %>
   </div>
   <% end %>
+</div>

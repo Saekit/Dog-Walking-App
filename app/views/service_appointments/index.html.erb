@@ -23,7 +23,7 @@
       <td> <%= link_to service_appointment.service.name, services_path %></td>
       <td> <%= service_appointment.service_total %></td>
       <td> <%= service_appointment.walker.name %></td>
-      <td> <%= service_appointment.appointment %></td>
+      <td> <%= service_appointment.appointment.dog.name %></td>
       <td> <%= link_to "View", service_appointment %></td>
       <td> <%= link_to "Book", edit_service_appointment_path(service_appointment) %></td>
     </tr>
