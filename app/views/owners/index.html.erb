@@ -1,26 +1,30 @@
-<h1>All Owners</h1>
+<div class="text-center">
+  <h1>All Owners</h1>
+</div>
+
 
 <p id="notice"> <%= notice %></p>
 
 
-<table>
-  <th>
+<table class="table table-striped">
+  <thead>
     <tr>
-      <th>Owners</th>
-      <th>Dogs Owned</th>
-      <th colspan ="6"></th>
+      <th scope="col">Owners</th>
+      <th scope="col">Dogs Owned</th>
+      <th scope="col">Profile</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
     </tr>
-  </th>
+  </thead>
 
   <tbody>
     <tr>
       <% @owners.each do |owner| %>
       <td> <%= link_to owner.name, owner %></td>
       <td> <%= owner.dogs.count %></td>
-      <td> <%= link_to "Show", owner %></td>
-      <td> <%= link_to "Edit", edit_owner_path(owner) %></td>
-      <td> <%= link_to "Delete", owner, :method => :delete  %></td>
-
+      <td> <%= link_to "profile page", owner %></td>
+      <td> <%= link_to "update", edit_owner_path(owner) %></td>
+      <td> <%= link_to "delete", owner, :method => :delete  %></td>
     </tr>
     <% end %>
   </tbody>

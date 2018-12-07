@@ -1,7 +1,19 @@
-<h1>Reciept</h1>
 
-<p><%= @service_appointment.service.name %>  service has been confirmed!!</p>
 
-<p><%= @service_appointment.appointment.dog.name %> has been schedule.</p>
 
-<p>Service total: <%= @service_appointment.service_total %></p>
+
+
+<div class="card text-center">
+  <div class="card-header">
+    <h2>🤗Scheduled Appointment🤗</h2>
+  </div>
+  <div class="card-body">
+    <p class="card-title"><strong><%= @service_appointment.appointment.dog.name %></strong></p>
+    <p class="card-text"> <strong>Service Scheduled:</strong><%= @service_appointment.service.name %></p>
+    <p class="card-text"><strong>Price:</strong> $<%= @service_appointment.service_total %>.00</p>
+    <a href= "<%= walkers_path(@service_appointment.walker_id) %> " class="btn btn-primary">See Walker</a>
+  </div>
+  <div class="card-footer text-muted">
+    <%= @service_appointment.appointment.start_time.strftime("%-I:%M:%p") %>
+  </div>
+</div>

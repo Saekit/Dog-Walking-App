@@ -14,18 +14,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :dog_id%>
-    <%= f.collection_select :dog_id, @dogs, :id, :name %>
+  <div class="form-group">
+      Choose your pet: <%= f.collection_select :dog_id, Dog.all, :id, :name %>
   </div>
 
-  <div class="field">
-    <%= f.label :date %>
-    <%= f.text_field :date %>
+  <div class="form-group">
+      Choose your date: <%= f.date_select :date %>
   </div>
 
-  <div class="field">
-    Start_time: <%= f.datetime_select :start_time,
+  <div class="form-group">
+    Start_time: <%= f.time_select :start_time,
     :combined => true,
     :default => Time.now.change(:hour => 6, :min => 00),
     :minute_interval => 15,
@@ -35,7 +33,7 @@
     :end_hour => 19,
     :end_minute => 00
   %>
-    End_time: <%= f.datetime_select :end_time,
+    End_time: <%= f.time_select :end_time,
     :combined => true,
     :default => Time.now.change(:hour => 6, :min => 00),
     :minute_interval => 15,
@@ -48,19 +46,15 @@
   </div>
 
 
-  <div class="field">
-    <%= f.label :status %>
-    <%= f.text_field  :status %>
+  <div class="form-group">
+    Status: <%= f.text_field  :status %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     Service: <%= f.collection_select :services, Service.all, :id, :name %>
   </div>
 
-
-
-
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit  "book appointment" %>
   </div>
   <% end %>

@@ -1,0 +1,36 @@
+<p id="notice"> <%= notice %> </p>
+
+    <%= form_for(@service_appoinment) do |f| %>
+    <% if @service_appointment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@service_appointment.errors.count, "error") %> prohibited this service_appointment from being saved😢</h2>
+
+        <ul>
+          <% @service_appointment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <hr>
+
+    <div class="field">
+      <b>Service Complete?</b>
+      <%= f.text_field :walked %>
+    </div>
+
+    <div class="form-group">
+      <label for="walkernotes">Walker Notes</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="ownercomments">Owner Comments</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    <% end %>
