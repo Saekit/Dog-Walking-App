@@ -66,7 +66,7 @@ end
 @times = ["6:00", "7:00", "8:00", "9:00", "10:00", "11:00","6:15", "7:15", "8:15", "9:15", "10:15", "11:15" ]
 @time = ["6:30", "7:45", "8:15", "9:15", "10:30", "11:15","6:45", "7:30", "8:45", "9:30", "10:45", "11:30" ]
 35.times do
-  Appointment.create!(dog_id: @dog_ids.sample, date: Faker::Date.between(6.months.ago, 1.year.from_now),start_time: @times.sample.strftime("%-I:%M:%p") , end_time:@time.sample.strftime)
+  Appointment.create!(dog_id: @dog_ids.sample, date: Faker::Date.between(6.months.ago, 1.year.from_now), start_time: @times.sample , end_time: @time.sample)
 end
 
 #price per 15 mins
