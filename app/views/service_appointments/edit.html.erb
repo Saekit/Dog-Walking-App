@@ -17,20 +17,49 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :appointment_id%>
-    <%= f.text_field :appointment_id %>
+  <div class="form-group">
+    Appointment id: <%= f.text_field :appointment_id %>
   </div>
 
-  <div class="field">
-    <%= f.label :service_id %>
-    <%= f.text_field :service_id %>
+  <div class="form-group">
+    <%= f.hidden_field :service_id %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :service_total %>
     <%= f.text_field :service_total %>
   </div>
+<hr>
+
+  <div class="text-center">
+    <h3>Service Section</h3>
+  </div>
+
+  <div class="form-group">
+    <b>Service Rating</b>
+    <%= f.select :walk_rating, (0..10) %>
+  </div>
+
+  <div class="form-group">
+    <label for="walkernotes"><strong>Walker Notes</strong></label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+  </div>
+<hr>
+  <div class="text-center">
+    <h3>Dog Owner Section</h3>
+  </div>
+
+  <div class="form-group">
+    <b>Service Complete?</b>
+    <%= f.check_box :walked %>
+  </div>
+
+  <div class="form-group">
+    <label for="ownercomments"><strong>Owner Comments</strong></label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+  </div>
+
+
 
   <div class="actions">
     <%= f.submit %>

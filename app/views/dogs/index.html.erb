@@ -1,7 +1,23 @@
-<h1>Dogs List</h1>
-<ul>
-<% @dogs.each do |dog| %>
-  <li><%= link_to dog.name, dog %> || <%= link_to "Edit", edit_dog_path(dog) %> || <%= link_to "Delete", dog, method: :delete %>
-</li>
-<% end %>
-<ul>
+  <div class="text-center">
+    <h1>Dogs List</h1>
+  </div>
+
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Dog Name</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <% @dogs.each.with_index do |dog, i| %>
+        <th scope="row"><%= i %></th>
+          <td><%= link_to dog.name, dog %></td>
+          <td><%= link_to "update", edit_dog_path(dog) %> </td>
+          <td><%= link_to "delete", dog, method: :delete %></td>
+      </tr>
+      <% end %>
