@@ -21,9 +21,10 @@
       <th scope="row"> <%= app.id %></th>
       <td><%= app.dog.name %></td>
       <td><%= app.dog.name %></td>
-      <td><%= app.date %></td>
+      <td><%= app.date.strftime('%') %></td>
       <td><%= link_to app.start_time.strftime("%-I:%M:%p"), app %></td>
       <td><%= link_to app.status, toggle_status_appointment_path(app) %></td>
+
       <td><%= link_to "delete", app, method: :delete  %></td>
     </tr>
     <% end %>

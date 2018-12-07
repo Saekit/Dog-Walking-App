@@ -1,7 +1,7 @@
 require 'byebug'
 
 class AppointmentsController < ApplicationController
-  before_action :find_appointment, only: [:show, :edit, :update, :destroy]
+  before_action :find_appointment, only: [:show, :edit, :update, :destroy, :toggle_status]
 
   def index
     @appointments = Appointment.all
@@ -76,10 +76,10 @@ class AppointmentsController < ApplicationController
   end
 
   def toggle_status
-    if @status.pending?
-      @status.booked!
-    elsif @blog.booked?
-      @blog.pending!
+    if @appointment.status == "pending"
+      @appointment.update(status: "booked")
+    elsif @appointment.status == "booked"
+        @appointment.update(status: "pending")
     end
     redirect_to appointments_path
   end
