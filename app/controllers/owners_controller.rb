@@ -3,7 +3,7 @@ class OwnersController < ApplicationController
   before_action :find_owner, only:[:show, :edit, :update, :destroy]
 
   def index
-    @owners = Owner.includes(:user)
+    @owners = Owner.all
   end
 
   def new
@@ -18,6 +18,7 @@ class OwnersController < ApplicationController
           @owner.save!
           format.html {redirect_to @owner, notice: "You have successfully created an Owner Profile😇"}
         else
+          flash[:errors] = @owner.errors.full_messages
           format.html {render :new}
         end
       end
@@ -37,6 +38,7 @@ class OwnersController < ApplicationController
         @owner.save!
         format.html { redirect_to @owner, notice: "you have successfully updated your form."}
       else
+        flash[:errors] = @owner.errors.full_messages
         format.html render :edit
       end
     end
@@ -57,7 +59,7 @@ class OwnersController < ApplicationController
   end
 
   def owner_params
-    params.require(:owner).permit(:address, :city, :user_id)
+    params.require(:owner).permit(:address, :city, :user_id, :name)
   end
 
 

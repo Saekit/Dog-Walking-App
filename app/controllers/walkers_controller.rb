@@ -48,7 +48,7 @@ before_action :find_walker, only:[:show, :edit, :update, :destroy]
   end
 
   def walker_params
-    params.require(:walker).permit(:age, :experience, :own_dogs, :ratings, :user_id )
+    params.require(:walker).permit(:age, :experience, :own_dogs, :ratings, :user_id, :name )
   end
 
 

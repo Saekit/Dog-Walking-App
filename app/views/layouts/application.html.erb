@@ -24,15 +24,15 @@
       <% if !!session[:user_id] %>
       <% if User.find(session[:user_id]).role == "owner" && !!User.find(session[:user_id]).owner %>
       <li class="nav-item">
-        <a class="nav-link"<%= link_to "My Home Page", owner_path(User.find(session[:user_id]).owner.id) %></a>
+        <a class="nav-link"<%= link_to "Owner Home", owner_path(User.find(session[:user_id]).owner.id) %></a>
       </li>
       <% elsif User.find(session[:user_id]).role == "walker" && !!User.find(session[:user_id]).walker%>
       <li class="nav-item">
-        <a class="nav-link"<%= link_to "My Home Page", walker_path(User.find(session[:user_id]).walker.id) %></a>
+        <a class="nav-link"<%= link_to "Walker Home", walker_path(User.find(session[:user_id]).walker.id) %></a>
       </li>
       <% elsif User.find(session[:user_id]).role == "admin" %>
       <li class="nav-item">
-        <a class="nav-link"<%= link_to "My Pages", user_path(User.find(session[:user_id])) %></a>
+        <a class="nav-link"<%= link_to "Admin Pages", user_path(User.find(session[:user_id])) %></a>
       </li>
       <% else %>
       <li class="nav-item">

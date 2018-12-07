@@ -15,7 +15,7 @@
   <tbody>
     <tr>
       <% @walkers.each do |walker| %>
-     <td> <%= link_to walker.user.name, walker %></td>
+     <td> <%= link_to walker.name, walker %></td>
       <td> <%= walker.experience %></td>
       <td> <%= link_to "Show", walker %></td>
       <td> <%= link_to "Edit", edit_walker_path(walker) %></td>

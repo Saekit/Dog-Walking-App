@@ -5,21 +5,29 @@
 <p> <b>My current role:</b> <%= @user.role %></p>
 <p> <b>Username: </b><%= @user.username %></p>
 <p> <b>Email:</b> <%= @user.email  %></p>
+<%= link_to "Edit User", edit_user_path(@user) %><br>
+
 <% if @user.role == "owner" && !!@user.owner%>
   <%= link_to "My Owner Home Page", owner_path(@user.owner) %>
 <% elsif @user.role == "walker" && !!@user.walker%>
 <%= link_to "My Walker Home Page", walker_path(@user.walker) %>
-<% elsif @user.role == "admin" %>
-  <%= link_to "My Owner Home Page", owner_path(@user.owner) %> ||
+
+<% elsif @user.role == "admin" && !!@user.owner%>
+  <%= link_to "My Owner Home Page", owner_path(@user.owner) %>
+<% elsif @user.role == "admin" && !!@user.owner%>
   <%= link_to "My Walker Home Page", walker_path(@user.walker) %>
-  <hr/ >
-  <%= link_to "List of Owners", owners_path %> ||
-  <%= link_to "List of Walkers", walkers_path %> ||
-  <%= link_to "List of Dogs", dogs_path %> ||
-  <%= link_to "List of Services", services_path %> ||
-  <%= link_to "List of Users", users_path %>
+  <% elsif @user.role == "admin" && !!@user.owner && !!@user.walker %>
+  <%= link_to "My Owner Home Page", owner_path(@user.owner) %> || 
+  <%= link_to "My Walker Home Page", walker_path(@user.walker) %>
+
 <% else %>
   <%= link_to "Register as a dog owner", new_owner_path %> ||
   <%= link_to "Register as a dog walker", new_walker_path %>
 <% end %>
+<hr/ >
+<%= link_to "List of Owners", owners_path %> ||
+<%= link_to "List of Walkers", walkers_path %> ||
+<%= link_to "List of Dogs", dogs_path %> ||
+<%= link_to "List of Services", services_path %> ||
+<%= link_to "List of Users", users_path %>
 </div>
