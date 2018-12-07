@@ -1,10 +1,17 @@
-<div class="text-center">
-<h1>Appointment for <%= @appointment.dog.name %> </h1>
-<ul class="no-bullets">
-  <li>Appointment date: <%= @appointment.date%></li>
-  <li>Appointment begin: <%= @appointment.start_time.strftime("%-I:%M:%p") %></li>
-  <li>Appointment end: <%= @appointment.end_time.strftime("%-I:%M:%p") %></li>
-  <li>Walked: <%= @appointment.status %>
 
-</ul>
+<div class="card text-center">
+  <div class="card-header">
+  <h1>Appointment for </h1>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @appointment.dog.name %></h5>
+    <p class="card-text">Appointment date: <%= @appointment.date.strftime('%a %b %d')%></p>
+    <p class="card-text">Appointment begin: <%= @appointment.start_time.strftime("%-I:%M:%p") %></p>
+    <p class="card-text">Appointment end: <%= @appointment.end_time.strftime("%-I:%M:%p") %></p>
+    <p class="card-text">Walked: <%= @appointment.status %></p>
+    <a href=" <%= dog_path(@appointment.dog_id) %>" class="btn btn-primary">Invoice</a>
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
 </div>

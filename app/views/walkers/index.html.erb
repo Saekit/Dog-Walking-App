@@ -1,24 +1,30 @@
-<h1>Meet Our Team</h1>
+  <div class="text-center">
+    <h1>Meet Our Team</h1>
+  </div>
 
 <p id="notice"> <%= notice %></p>
 
 
-<table>
-  <th>
+<table class="table table-hover">
+  <thead>
     <tr>
-      <th>Walkers</th>
-      <th>Experience</th>
-      <th colspan ="6"></th>
+      <th scope="col">id</th>
+      <th scope="col">Walkers</th>
+      <th scope="col">Experience</th>
+      <th scope="col">Profile</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
     </tr>
-  </th>
+  </thead>
 
   <tbody>
     <tr>
-      <% @walkers.each do |walker| %>
-     <td> <%= link_to walker.name, walker %></td>
+      <% @walkers.each_with_index do |walker, i| %>
+      <th scope="row"> <%= i %></th>
+      <td> <%= link_to walker.name, walker %></td>
       <td> <%= walker.experience %></td>
-      <td> <%= link_to "Show", walker %></td>
-      <td> <%= link_to "Edit", edit_walker_path(walker) %></td>
+      <td> <%= link_to "Profile Page", walker %></td>
+      <td> <%= link_to "Update", edit_walker_path(walker) %></td>
       <td> <%= link_to "Delete", walker, method: :delete  %></td>
 
     </tr>

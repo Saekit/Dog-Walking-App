@@ -7,6 +7,6 @@ class Appointment < ApplicationRecord
 end
 
 def time_conversion
-  
+
 
 end

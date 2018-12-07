@@ -5,6 +5,8 @@ class AppointmentsController < ApplicationController
 
   def index
     @appointments = Appointment.all
+    @services = Service.all
+    @service_appointment = ServiceAppointment.all
   end
 
   def show
@@ -21,11 +23,18 @@ class AppointmentsController < ApplicationController
 
   def create
 
+    @year = appointment_params["date(1i)"].to_i
+    @mon = appointment_params["date(2i)"].to_i
+    @day = appointment_params["date(3i)"].to_i
+
+    @date = Date.new(@year, @mon, @day)
+
+
     @appointment = Appointment.create(
       start_time: appointment_params["start_time(5i)"],
       end_time: appointment_params["end_time(5i)"],
       dog_id: appointment_params["dog_id"],
-      date: appointment_params["date"]
+      date: @date
       )
 
       @start = appointment_params["start_time(5i)"]
@@ -42,12 +51,17 @@ class AppointmentsController < ApplicationController
 
       @service_total = ((@sec - @secs)/60 * 5)/15
 
+
+
+
     respond_to do |format|
       if @appointment.valid?
         @appointment.save!
 
 
-        ServiceAppointment.create!(service_total: 16, appointment_id: @appointment.id, service_id: params[:appointment][:services].to_i, walker_id: 117)
+
+        ServiceAppointment.create!(service_total: 16, appointment_id: @appointment.id, service_id: params[:appointment][:services].to_i, walker_id: 10)
+
         format.html { redirect_to @appointment, notice: "Appointment has been created successfully!!"}
 
 
@@ -56,11 +70,18 @@ class AppointmentsController < ApplicationController
         format.html { render :new }
       end
     end
-
-
   end
 
   def edit
+  end
+
+  def toggle_status
+    if @status.pending?
+      @status.booked!
+    elsif @blog.booked?
+      @blog.pending!
+    end
+    redirect_to appointments_path
   end
 
   def update
