@@ -1,12 +1,12 @@
 <div class="text-center">
-<h1> <%= @walker.user.name %>'s Booked Appointments</h1>
-<% if @walker.appointments != [] %>
-  <% @walker.appointments.each do |app| %>
+<h1> <%= @walker.name %>'s Booked Appointments</h1>
+<% if @walker.service_appointments != [] %>
+  <% @walker.service_appointments.each do |ser_app| %>
     <ul class="dog-pics">
-      <% if app.dog != nil %>
-        <li><%= app.dog.name %> | <%= link_to app.datetime.strftime("%a %b %d %-I:%M%p"), app %> <br>
-          <% if !!app.dog.image_url %>
-          <%= image_tag(app.dog.image_url, :size => '260x180') %>
+      <% if ser_app.appointment != nil %>
+        <li><%= ser_app.appointment.dog.name %> | <%= link_to ser_app.appointment.date, ser_app %> <%= ser_app.appointment.dog.name %> | <%= ser_app.appointment.start_time%> <%= ser_app.appointment.end_time%><br>
+          <% if !!ser_app.appointment.dog.image_url %>
+          <%= image_tag(ser_app.appointment.dog.image_url, :size => '260x180') %>
           <% end %>
         </li>
       <% end %>

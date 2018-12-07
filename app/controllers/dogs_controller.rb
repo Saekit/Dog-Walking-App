@@ -7,7 +7,6 @@ class DogsController < ApplicationController
   end
 
   def show
-    @owner_name = User.find(@dog.owner.user_id).name
   end
 
   def new

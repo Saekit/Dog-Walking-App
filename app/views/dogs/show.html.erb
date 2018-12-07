@@ -6,6 +6,6 @@
   <li>I am <%= @dog.age %> years old. </li>
   <li>I am a <%= @dog.breed %>.</li>
   <li>I am a <%= @dog.size %> <%= @dog.friendliness %> dog.</li>
-  <li><%= @owner_name %> is my owner!</li>
+  <li><%= @dog.owner.name %> is my owner!</li>
   <li>My restrictions: <%= @dog.restriction %></li>
 </ul>

@@ -2,8 +2,9 @@ class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @owner = User.owner
-    @walker = User.walker
+    @users = User.all
+    @owners = Owner.all
+    @walkers = Walker.all
     current_user = User.find_by_id(session[:current_user_id])
   end
 
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
       when "walker"
         redirect_to new_walker_path
       when "admin"
-        redirect_to users_path
+        redirect_to user_path(@user)
       end
     else
       flash[:errors] = @user.errors.full_messages

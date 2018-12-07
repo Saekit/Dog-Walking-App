@@ -1,8 +1,10 @@
+<div class="text-center">
 <h1>Appointment for <%= @appointment.dog.name %> </h1>
-<ul>
+<ul class="no-bullets">
   <li>Appointment date: <%= @appointment.date%></li>
   <li>Appointment begin: <%= @appointment.start_time.strftime("%-I:%M:%p") %></li>
   <li>Appointment end: <%= @appointment.end_time.strftime("%-I:%M:%p") %></li>
   <li>Walked: <%= @appointment.status %>
 
 </ul>
+</div>

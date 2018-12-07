@@ -44,8 +44,8 @@ end
 20.times do
   Dog.create!(name: Faker::Dog.name, age: Random.rand(1..15), breed: Faker::Dog.breed, size: Faker::Dog.size, restriction: @restrictions.sample, friendliness: @friendly.sample, owner_id: @owner_ids.sample)
 end
-dog_pics = ["corgi.jpg", "eskimo.jpg", "husky.jpg", "lab.jpg"]
-4.times do
+dog_pics = ["corgi.jpg", "eskimo.jpg", "husky.jpg", "lab.jpg", "lab_pup.jpg", "malamute.jpg", "malamute_pup.jpg", "chow.jpg", "chowbaby.jpg"]
+10.times do
   Dog.create!(name: Faker::Dog.name, age: Random.rand(1..15), breed: Faker::Dog.breed, size: Faker::Dog.size, restriction: @restrictions.sample, friendliness: @friendly.sample, owner_id: @owner_ids.sample, image_url: dog_pics.shuffle.sample)
 end
 
@@ -56,7 +56,7 @@ end
   # Walker.create!(age: 0, experience: "placeholder", rating: 0, user_id: @user_ids.sample)
 
 10.times do |i|
-  Walker.create!(age: Random.rand(18..40), experience: @experience.sample, rating: @rating.sample, user_id: @user_ids[i+10])
+  Walker.create!(age: Random.rand(18..40), experience: @experience.sample, rating: @rating.sample, user_id: @user_ids[i+10], name: Faker::Name.unique.name)
 end
 
 @walker_ids = Walker.pluck(:id)

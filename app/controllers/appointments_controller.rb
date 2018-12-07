@@ -47,8 +47,10 @@ class AppointmentsController < ApplicationController
         @appointment.save!
 
 
-        ServiceAppointment.create!(service_total: @service_total, appointment_id: @appointment.id, service_id: params[:appointment][:services].to_i, walker_id: 10)
-        format.html { redirect_to service_appointments_path, notice: "Appointment has been created successfully!!"}
+        ServiceAppointment.create!(service_total: 16, appointment_id: @appointment.id, service_id: params[:appointment][:services].to_i, walker_id: 78)
+        format.html { redirect_to @appointment, notice: "Appointment has been created successfully!!"}
+
+
       else
         @dogs = Dog.all
         format.html { render :new }

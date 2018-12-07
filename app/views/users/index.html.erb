@@ -1,43 +1,43 @@
-<p id="notice"> <%= notice %></p>
+
 
 <h1>All Users</h1>
 
-<table>
+<table class="container">
   <th>
     <tr>
       <th>Owners</th>
-      <th>Role</th>
+      <th>City</th>
       <th colspan ="6"></th>
     </tr>
   </th>
 
   <tbody>
     <tr>
-      <% @owner.each do |owner| %>
+      <% @owners.each do |owner| %>
       <td> <%= owner.name %></td>
-      <td> <%= owner.role %></td>
-      <td> <%= link_to 'New', new_owner_path %></td>
+      <td> <%= owner.city %></td>
+      <td> <%= link_to 'Edit', edit_owner_path(owner) %></td>
       <td> <%= link_to 'Delete', owner, method: :delete %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
 
-<table>
+<table class="container">
   <th>
     <tr>
       <th>Walkers</th>
-      <th>Role</th>
+      <th>Experience</th>
       <th colspan ="6"></th>
     </tr>
   </th>
 
   <tbody>
     <tr>
-      <% @walker.each do |walker| %>
+      <% @walkers.each do |walker| %>
       <td> <%= walker.name %></td>
-      <td> <%= walker.role %></td>
-      <td> <%= link_to 'New', new_walker_path %></td>
+      <td> <%= walker.experience %></td>
+      <td> <%= link_to 'Edit', edit_walker_path(walker) %></td>
       <td> <%= link_to 'Delete', walker, method: :delete %></td>
     </tr>
     <% end %>
