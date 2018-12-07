@@ -4,7 +4,9 @@ class Appointment < ApplicationRecord
   has_many :services, through: :service_appointments
   belongs_to :dog
 
+end
 
+def time_conversion
+  
 
-  accepts_nested_attributes_for :services
 end

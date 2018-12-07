@@ -24,13 +24,27 @@
     <%= f.text_field :date %>
   </div>
 
-
-
   <div class="field">
-    <%= f.label :start_time %>
-    <%= f.time_select :start_time %>
-    <%= f.label :end_time %>
-    <%= f.time_select :end_time %>
+    Start_time: <%= f.datetime_select :start_time,
+    :combined => true,
+    :default => Time.now.change(:hour => 6, :min => 00),
+    :minute_interval => 15,
+    :time_separator => "",
+    :start_hour => 6,
+    :start_minute => 00,
+    :end_hour => 19,
+    :end_minute => 00
+  %>
+    End_time: <%= f.datetime_select :end_time,
+    :combined => true,
+    :default => Time.now.change(:hour => 6, :min => 00),
+    :minute_interval => 15,
+    :time_separator => "",
+    :start_hour => 6,
+    :start_minute => 00,
+    :end_hour => 19,
+    :end_minute => 00
+  %>
   </div>
 
 
