@@ -12,14 +12,11 @@ class ServiceAppointmentsController < ApplicationController
 
   def create
     @service_appointment = ServiceAppointment.create(service_appointment_params)
-
-    respond_to do |format|
-      if @service_appointment.valid?
-        @service_appointment.save!
-        format.html {redirect_to service_appointments, notice: "You have successfully created a service appointment"}
-      else
-        format.html {render :new}
-      end
+    if @service_appointment.valid?
+      redirect_to @service_appointment
+    else
+      flash[:errors] = @service_appointment.errors.full_messages
+      render :new
     end
   end
 
@@ -31,28 +28,26 @@ class ServiceAppointmentsController < ApplicationController
 
   def update
     @service_appointment.update(service_appointment_params)
+    # byebug
+    if @service_appointment.valid?
+      @service_appointment.save!
 
-    respond_to do |format|
-      if @service_appointment.valid?
-        @service_appointment.save!
-        format.html {redirect_to @service_appointment, notice: "You have successfully updated your form."}
+      if @service_appointment.walker
+        redirect_to walker_path(@service_appointment.walker.id)
       else
-        format.html { render :new}
+        redirect_to owner_path(@service_appointment.appointment.dog.owner.id)
       end
+
+    else
+      flash[:errors] = @service_appointment.errors.full_messages
+      render :edit
     end
+
   end
 
   def destroy
     @service_appointment.destroy
-
-    respond_to do |format|
-      if @service_appointment.valid?
-        @service_appointment.save
-        format.html {redirect_to service_appointments_path, notice: "You have successfully deleted the service appointment."}
-      else
-        format.html {render :edit}
-      end
-    end
+    redirect_to service_appointments_path
   end
 
   private
@@ -62,7 +57,7 @@ class ServiceAppointmentsController < ApplicationController
   end
 
   def service_appointment_params
-    params.require(:service_appointment).permit(:service_total, :appointment_id, :service_id)
+    params.require(:service_appointment).permit(:service_total, :appointment_id, :service_id, :walker_id)
   end
 
 

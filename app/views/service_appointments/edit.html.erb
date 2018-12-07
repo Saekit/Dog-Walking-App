@@ -18,7 +18,7 @@
   <% end %>
 
   <div class="form-group">
-    Appointment id: <%= f.text_field :appointment_id %>
+    <%= f.hidden_field :appointment_id %>
   </div>
 
   <div class="form-group">
@@ -26,8 +26,12 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :service_total %>
-    <%= f.text_field :service_total %>
+    <%= f.label "Walker name" %>
+    <%= f.collection_select :walker_id, Walker.all, :id, :name %>
+  </div>
+
+  <div class="form-group">
+    <%= f.hidden_field :service_total %>
   </div>
 <hr>
 
@@ -35,10 +39,7 @@
     <h3>Service Section</h3>
   </div>
 
-  <div class="form-group">
-    <b>Service Rating</b>
-    <%= f.select :walk_rating, (0..10) %>
-  </div>
+
 
   <div class="form-group">
     <label for="walkernotes"><strong>Walker Notes</strong></label>
@@ -52,6 +53,11 @@
   <div class="form-group">
     <b>Service Complete?</b>
     <%= f.check_box :walked %>
+  </div>
+
+  <div class="form-group">
+    <b>Service Rating</b>
+    <%= f.select :walk_rating, (0..10) %>
   </div>
 
   <div class="form-group">

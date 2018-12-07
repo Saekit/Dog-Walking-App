@@ -26,7 +26,7 @@
       <% if dog.appointments != [] %>
         <li class="dog-app-name"><%= dog.name %> |
           <% dog.appointments.each do |app| %>
-          <%= link_to app.start_time, app %> |
+          <%= link_to app.start_time.strftime("%a %b %d, %-I:%M%p"), app %> |
           <% end %>
         </li>
       <% else %>
