@@ -21,16 +21,34 @@ class AppointmentsController < ApplicationController
 
   def create
 
-    @appointment = Appointment.create(appointment_params)
+    @appointment = Appointment.create(
+      start_time: appointment_params["start_time(5i)"],
+      end_time: appointment_params["end_time(5i)"],
+      dog_id: appointment_params["dog_id"],
+      date: appointment_params["date"]
+      )
 
+      @start = appointment_params["start_time(5i)"]
+      @end = appointment_params["end_time(5i)"]
+
+      if @begin = DateTime.parse(@start)
+          @secs = (@begin.hour * 3600) + (@begin.min * 60)
+        end
+
+      if @gone = DateTime.parse(@end)
+            @sec = (@gone.hour * 3600) + (@gone.min * 60)
+          end
+
+
+      @service_total = ((@sec - @secs)/60 * 5)/15
 
     respond_to do |format|
       if @appointment.valid?
         @appointment.save!
 
 
-        ServiceAppointment.create!(service_total: 16, appointment_id: @appointment.id, service_id: params[:appointment][:services].to_i, walker_id: 10)
-        format.html { redirect_to @appointment, notice: "Appointment has been created successfully!!"}
+        ServiceAppointment.create!(service_total: @service_total, appointment_id: @appointment.id, service_id: params[:appointment][:services].to_i, walker_id: 10)
+        format.html { redirect_to service_appointments_path, notice: "Appointment has been created successfully!!"}
       else
         @dogs = Dog.all
         format.html { render :new }

@@ -19,6 +19,13 @@
 </div>
 
 <div class="field">
+  <%= f.label :start_time %>
+  <%= f.time_select :start_time %>
+  <%= f.label :end_time %>
+  <%= f.time_select :end_time %>
+</div>
+
+<div class="field">
   <%= f.time_select :comment,
   :combined => true,
   :default => Time.now.change(:hour => 6, :min => 00),
